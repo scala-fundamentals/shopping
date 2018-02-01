@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="SBT" />
+    <profile name="sbt 1" modules="shopping,sharedJVM" />
+    <profile name="sbt 2" modules="client">
+      <parameters>
+        <parameter value="-P:scalajs:mapSourceURI:file:/Users/nicolasjorand/Documents/Activities/writing/shopping/client/src/main/scala/-&gt;ab0a8717f83d0073d82f/" />
+      </parameters>
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 3" modules="server">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="utf8" />
+      </parameters>
+    </profile>
+    <profile name="sbt 4" modules="sharedJS">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+      </plugins>
+    </profile>
+  </component>
+</project>

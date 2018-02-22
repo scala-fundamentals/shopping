@@ -4,4 +4,6 @@ case class Product(name: String, code : String, description : String, price: Dou
 
 case class Cart(user:String, productCode: String, quantity: Int)
 
+case class ProductInCart(user:String, productCode: String)
+
 case class User(sessionID: String)

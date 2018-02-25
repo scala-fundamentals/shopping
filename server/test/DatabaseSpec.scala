@@ -35,7 +35,7 @@ class DatabaseSpec extends PlaySpec with GuiceOneAppPerSuite {
     "be empty on database creation" in {
       val dao: CartsDao = app2dao(app)
       val expected = Set.empty[Cart]
-      val dbResults = Await.result(dao.all(), 1 seconds)
+      val dbResults = Await.result(dao.all("user1"), 1 seconds)
 
       dbResults.toSet should contain theSameElementsAs (expected)
     }
@@ -51,7 +51,7 @@ class DatabaseSpec extends PlaySpec with GuiceOneAppPerSuite {
       Await.result(Future.sequence(expected.map(dao.insert(_))), 1 seconds)
       Await.result(Future.sequence(noise.map(dao.insert(_))), 1 seconds)
       val dbResults = Await.result(dao.cart4("user1"), 1 seconds)
-      val dbAllResults = Await.result(dao.all(), 1 seconds)
+      val dbAllResults = Await.result(dao.all("user1"), 1 seconds)
 
       dbResults.toSet should contain theSameElementsAs (expected)
       dbAllResults.size should equal(expected ++ noise size)
@@ -69,7 +69,7 @@ class DatabaseSpec extends PlaySpec with GuiceOneAppPerSuite {
       Await.result(dao.remove(ProductInCart("user1", "BEO1")), 1 seconds)
 
       val dbResults = Await.result(dao.cart4("user1"), 1 seconds)
-      val dbAllResults = Await.result(dao.all(), 1 seconds)
+      val dbAllResults = Await.result(dao.all("user1"), 1 seconds)
 
       dbResults.toSet should contain theSameElementsAs (expected)
     }
@@ -84,7 +84,7 @@ class DatabaseSpec extends PlaySpec with GuiceOneAppPerSuite {
       Await.result(dao.update(Cart("user1", "ALD1",5)), 1 seconds)
 
       val dbResults = Await.result(dao.cart4("user1"), 1 seconds)
-      val dbAllResults = Await.result(dao.all(), 1 seconds)
+      val dbAllResults = Await.result(dao.all("user1"), 1 seconds)
 
       dbResults.toSet should contain theSameElementsAs (expected)
     }

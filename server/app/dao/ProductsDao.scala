@@ -2,7 +2,7 @@ package dao
 
 import javax.inject.Inject
 
-import models.{Cart, Product, ProductInCart}
+import models.{Cart, Product, ProductInCart, User}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
@@ -17,7 +17,7 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
 
   def all(): Future[Seq[Product]] = db.run(products.result)
 
-  def insert(product: Product): Future[Unit] = db.run(products += product).map { _ => () }
+  def insert(product: Product): Future[Unit] = db.run(products insertOrUpdate product).map { _ => () }
 
   private class ProductsTable(tag: Tag) extends Table[Product](tag, "PRODUCTS") {
     def name = column[String]("NAME")
@@ -51,7 +51,7 @@ class CartsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
     db.run(q.update(cart.quantity))
   }
 
-  def all(): Future[Seq[Cart]] = db.run(carts.result)
+  def all(user: String): Future[Seq[Cart]] = db.run(carts.filter(c=> c.user === user).result)
 
   private class CartsTable(tag: Tag) extends Table[Cart](tag, "CART") {
 

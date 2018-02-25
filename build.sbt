@@ -10,6 +10,8 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
     "com.typesafe.play" %% "play-slick-evolutions" % "3.0.0",
     "com.h2database" % "h2" % "1.4.196",
     "com.dripower" %% "play-circe" % "2609.0",
+    "io.swagger" %% "swagger-play2" % "1.6.0",
+    "org.webjars" % "swagger-ui" % "3.10.0",
     guice,
     "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % "test"
   ),

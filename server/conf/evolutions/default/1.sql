@@ -1,18 +1,18 @@
 # --- !Ups
-CREATE TABLE IF NOT EXISTS PUBLIC.PRODUCTS (
+CREATE TABLE IF NOT EXISTS PUBLIC.PRODUCT (
   name VARCHAR(100) NOT NULL,
   code VARCHAR(255) NOT NULL,
   description VARCHAR(1000) NOT NULL,
-  price INT NOT NULL,
+  price DOUBLE NOT NULL,
   PRIMARY KEY(code)
 );
-INSERT INTO PUBLIC.PRODUCTS (name,code, description, price) VALUES ('NAO','ALD1','NAO is an humanoid robot.', 3500);
-INSERT INTO PUBLIC.PRODUCTS (name,code, description, price) VALUES ('PEPER','ALD2','PEPPER is a robot moving with wheels and with a screen as human interaction',7000);
-INSERT INTO PUBLIC.PRODUCTS (name,code, description, price) VALUES ('BEOBOT','BEO1','Beobot is a multipurpose robot.',159);
+INSERT INTO PUBLIC.PRODUCT (name,code, description, price) VALUES ('NAO','ALD1','NAO is an humanoid robot.', 3500);
+INSERT INTO PUBLIC.PRODUCT (name,code, description, price) VALUES ('PEPER','ALD2','PEPPER is a robot moving with wheels and with a screen as human interaction',7000);
+INSERT INTO PUBLIC.PRODUCT (name,code, description, price) VALUES ('BEOBOT','BEO1','Beobot is a multipurpose robot.',159);
 
 
 CREATE TABLE IF NOT EXISTS PUBLIC.CART (
-  id BIGINT AUTO_INCREMENT,
+  id IDENTITY AUTO_INCREMENT,
   user VARCHAR(255) NOT NULL,
   code VARCHAR(255) NOT NULL,
   qty INT NOT NULL,
@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS PUBLIC.CART (
 );
 
 # --- !Downs
-DROP TABLE PRODUCTS;
+DROP TABLE PRODUCT;
 DROP TABLE CART;

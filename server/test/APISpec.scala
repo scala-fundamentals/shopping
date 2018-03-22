@@ -1,4 +1,8 @@
+import io.circe.generic.auto._
+import io.circe.parser._
 import models.Cart
+import org.scalatest.concurrent.ScalaFutures
+import org.scalatest.time.{Millis, Seconds, Span}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
 import play.api.libs.ws.{DefaultWSCookie, WSClient}
@@ -8,10 +12,10 @@ import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.DurationInt
 
-import io.circe.parser._
-import io.circe.generic.auto._
+class APISpec extends PlaySpec with ScalaFutures with GuiceOneServerPerSuite {
 
-class APISpec extends PlaySpec with GuiceOneServerPerSuite {
+  implicit val defaultPatience =
+    PatienceConfig(timeout = Span(1, Seconds), interval = Span(100, Millis))
 
   val baseURL = s"localhost:$port/v1"
   val productsURL = s"http://$baseURL/products"
@@ -30,12 +34,14 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
 
 
     "list all the product" in {
-      val response = Await.result(wsClient.url(productsURL).get(), 1 seconds)
+
+      val response = wsClient.url(productsURL).get().futureValue
       println(response.body)
       response.status mustBe OK
       response.body must include("PEPER")
       response.body must include("NAO")
       response.body must include("BEOBOT")
+
     }
 
     "add a product" in {
@@ -50,10 +56,10 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
                     }
       """
 
-      val posted = Await.result(wsClient.url(addProductsURL).post(newProduct), 1 seconds)
+      val posted = wsClient.url(addProductsURL).post(newProduct).futureValue
       posted.status mustBe OK
 
-      val response = Await.result(wsClient.url(productsURL).get(), 1 seconds)
+      val response = wsClient.url(productsURL).get().futureValue
       println(response.body)
       response.body must include("NewOne")
     }
@@ -66,7 +72,7 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
     }
 
     "list all the products in a cart" in {
-      val response = Await.result(wsClient.url(productsInCartURL).addCookies(defaultCookie).get(), 1 seconds)
+      val response = wsClient.url(productsInCartURL).addCookies(defaultCookie).get().futureValue
       println(response)
       response.status mustBe OK
 
@@ -74,22 +80,22 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
       listOfProduct.right.get mustBe empty
     }
     "add product in the cart" in {
-       val productID = "ALD1"
+      val productID = "ALD1"
       val quantity = 1
-      val posted = Await.result(wsClient.url(actionProductInCartURL(productID, quantity)).addCookies(defaultCookie).post(""), 1 seconds)
+      val posted = wsClient.url(actionProductInCartURL(productID, quantity)).addCookies(defaultCookie).post("").futureValue
       posted.status mustBe OK
 
-      val response = Await.result(wsClient.url(productsInCartURL).addCookies(defaultCookie).get(), 1 seconds)
+      val response = wsClient.url(productsInCartURL).addCookies(defaultCookie).get().futureValue
       println(response)
       response.status mustBe OK
       response.body must include("ALD1")
     }
     "delete product in the cart" in {
       val productID = "ALD1"
-      val posted = Await.result(wsClient.url(deleteProductInCartURL(productID)).addCookies(defaultCookie).delete(), 1 seconds)
+      val posted = wsClient.url(deleteProductInCartURL(productID)).addCookies(defaultCookie).delete().futureValue
       posted.status mustBe OK
 
-      val response = Await.result(wsClient.url(productsInCartURL).addCookies(defaultCookie).get(), 1 seconds)
+      val response = wsClient.url(productsInCartURL).addCookies(defaultCookie).get().futureValue
       println(response)
       response.status mustBe OK
       response.body mustNot include("ALD1")
@@ -97,14 +103,14 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
     "update product quantity in the cart" in {
       val productID = "ALD1"
       val quantity = 1
-      val posted = Await.result(wsClient.url(actionProductInCartURL(productID, quantity)).addCookies(defaultCookie).post(""), 1 seconds)
+      val posted = wsClient.url(actionProductInCartURL(productID, quantity)).addCookies(defaultCookie).post("").futureValue
       posted.status mustBe OK
 
       val newQuantity = 99
-      val update = Await.result(wsClient.url(actionProductInCartURL(productID, newQuantity)).addCookies(defaultCookie).put(""), 1 seconds)
+      val update = wsClient.url(actionProductInCartURL(productID, newQuantity)).addCookies(defaultCookie).put("").futureValue
       update.status mustBe OK
 
-      val response = Await.result(wsClient.url(productsInCartURL).addCookies(defaultCookie).get(), 1 seconds)
+      val response = wsClient.url(productsInCartURL).addCookies(defaultCookie).get().futureValue
       println(response)
       response.status mustBe OK
       response.body must include(productID)
@@ -113,12 +119,12 @@ class APISpec extends PlaySpec with GuiceOneServerPerSuite {
 
     "return a cookie when a user login" in {
       val cookieFuture = wsClient.url(login).post("myID").map { response =>
-        response.headers.get("Set-Cookie").map( header =>
+        response.headers.get("Set-Cookie").map(header =>
           header.head.split(";").filter(_.startsWith("PLAY_SESSION")).head
         )
       }
-      val loginCookies = Await.result(cookieFuture, 1 seconds)
-      val play_session_Key = loginCookies.get.split("=").head
+
+      val play_session_Key = cookieFuture.futureValue.get.split("=").head
       play_session_Key must equal("PLAY_SESSION")
     }
   }

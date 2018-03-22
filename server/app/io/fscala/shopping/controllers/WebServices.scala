@@ -2,7 +2,7 @@ package controllers
 
 import javax.inject.{Inject, Singleton}
 
-import dao.{CartsDao, ProductsDao}
+import dao.{CartDao, ProductDao}
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
@@ -18,7 +18,7 @@ import scala.concurrent.Future
 
 @Singleton
 @Api(value = "Product and Cart API")
-class WebServices @Inject()(cc: ControllerComponents, productDao: ProductsDao, cartsDao: CartsDao) extends AbstractController(cc) with Circe {
+class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, cartsDao: CartDao) extends AbstractController(cc) with Circe {
 
 
   val recoverError: PartialFunction[Throwable, Result] = {
@@ -56,7 +56,7 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductsDao, c
     userOption match {
       case Some(user) => {
         Logger.info(s"User '$user' is asking for the list of product in the cart")
-        val futureInsert = cartsDao.all(user)
+        val futureInsert = cartsDao.cart4(user)
 
         futureInsert.map(products => Ok(products.asJson)).recover(recoverError)
       }

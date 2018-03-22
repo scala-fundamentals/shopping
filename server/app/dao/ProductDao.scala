@@ -2,16 +2,14 @@ package dao
 
 import javax.inject.Inject
 
-import models.{Cart, Product, ProductInCart, User}
+import models.{Cart, Product, ProductInCart}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
-import scala.concurrent.{Awaitable, ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext, Future}
 
 
-
-
-class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
+class ProductDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
 
   import profile.api._
 
@@ -19,7 +17,7 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
 
   def insert(product: Product): Future[Unit] = db.run(products insertOrUpdate product).map { _ => () }
 
-  private class ProductsTable(tag: Tag) extends Table[Product](tag, "PRODUCTS") {
+  private class ProductTable(tag: Tag) extends Table[Product](tag, "PRODUCT") {
     def name = column[String]("NAME")
 
     def code = column[String]("CODE")
@@ -31,29 +29,28 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     override def * = (name, code, description, price) <> (Product.tupled, Product.unapply)
   }
 
-  private val products = TableQuery[ProductsTable]
+  private val products = TableQuery[ProductTable]
 }
 
-class CartsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
-
+class CartDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
 
   import profile.api._
 
 
-  def cart4(usr : String): Future[Seq[Cart]] = db.run(carts.filter(_.user === usr).result)
+  def cart4(usr: String): Future[Seq[Cart]] = db.run(carts.filter(_.user === usr).result)
 
   def insert(cart: Cart): Future[Unit] = db.run(carts += cart).map { _ => () }
 
   def remove(cart: ProductInCart): Future[Int] = db.run(carts.filter(c => c.user === cart.user && c.productCode === cart.productCode).delete)
 
   def update(cart: Cart): Future[Int] = {
-    val q = for { c <- carts if c.user === cart.user && c.productCode === cart.productCode } yield c.quantity
+    val q = for {c <- carts if c.user === cart.user && c.productCode === cart.productCode} yield c.quantity
     db.run(q.update(cart.quantity))
   }
 
-  def all(user: String): Future[Seq[Cart]] = db.run(carts.filter(c=> c.user === user).result)
+  def all(): Future[Seq[Cart]] = db.run(carts.result)
 
-  private class CartsTable(tag: Tag) extends Table[Cart](tag, "CART") {
+  private class CartTable(tag: Tag) extends Table[Cart](tag, "CART") {
 
     def user = column[String]("USER")
 
@@ -64,7 +61,7 @@ class CartsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
     override def * = (user, productCode, quantity) <> (Cart.tupled, Cart.unapply)
   }
 
-  private val carts = TableQuery[CartsTable]
+  private val carts = TableQuery[CartTable]
 
 }
 

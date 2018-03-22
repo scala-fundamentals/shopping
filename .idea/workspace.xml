@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27720a35-e326-46f5-b0fb-1983975634bf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/JSON.sc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/server/test/CartDaoSpec.scala" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change beforePath="$PROJECT_DIR$/server/app/dao/ProductsDao.scala" afterPath="$PROJECT_DIR$/server/app/dao/ProductsDao.scala" />
+      <change beforePath="$PROJECT_DIR$/server/app/dao/ProductsDao.scala" afterPath="$PROJECT_DIR$/server/app/dao/ProductDao.scala" />
       <change beforePath="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Application.scala" afterPath="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Application.scala" />
-      <change beforePath="$PROJECT_DIR$/server/conf/application.conf" afterPath="$PROJECT_DIR$/server/conf/application.conf" />
-      <change beforePath="$PROJECT_DIR$/server/conf/routes" afterPath="$PROJECT_DIR$/server/conf/routes" />
+      <change beforePath="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala" afterPath="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala" />
+      <change beforePath="$PROJECT_DIR$/server/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/server/conf/evolutions/default/1.sql" />
       <change beforePath="$PROJECT_DIR$/server/test/APISpec.scala" afterPath="$PROJECT_DIR$/server/test/APISpec.scala" />
-      <change beforePath="$PROJECT_DIR$/server/test/DatabaseSpec.scala" afterPath="$PROJECT_DIR$/server/test/DatabaseSpec.scala" />
+      <change beforePath="$PROJECT_DIR$/server/test/ApplicationSpec.scala" afterPath="$PROJECT_DIR$/server/test/ApplicationSpec.scala" />
+      <change beforePath="$PROJECT_DIR$/server/test/DatabaseSpec.scala" afterPath="$PROJECT_DIR$/server/test/ProductDaoSpec.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -65,23 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebServices.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala">
+      <file leaf-file-name="ProductDao.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/app/dao/ProductDao.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="71" column="0" lean-forward="false" selection-start-line="66" selection-start-column="2" selection-end-line="71" selection-end-column="0" />
-              <folding>
-                <element signature="e#21#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductsDao.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/app/dao/ProductsDao.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+            <state relative-caret-position="900">
+              <caret line="60" column="61" lean-forward="false" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
               <folding>
                 <element signature="e#13#39#0" expanded="true" />
               </folding>
@@ -89,11 +76,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiOperation.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiOperation.java">
+      <file leaf-file-name="CartDaoSpec.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/test/CartDaoSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
-              <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="262">
+              <caret line="37" column="54" lean-forward="false" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Futures.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.4-sources.jar!/org/scalatest/concurrent/Futures.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6660">
+              <caret line="466" column="43" lean-forward="false" selection-start-line="466" selection-start-column="29" selection-end-line="466" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Application.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <folding>
+                <element signature="e#21#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebServices.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -102,68 +123,42 @@
       <file leaf-file-name="Models.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/app/models/Models.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            <state relative-caret-position="90">
+              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiImplicitParams.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiImplicitParams.java">
+      <file leaf-file-name="APISpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/test/APISpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="795">
+              <caret line="53" column="62" lean-forward="false" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiImplicitParam.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiImplicitParam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Example.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/Example.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Results.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.6-sources.jar!/play/api/mvc/Results.scala">
+      <file leaf-file-name="ProductDaoSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/test/ProductDaoSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="578" column="6" lean-forward="false" selection-start-line="578" selection-start-column="6" selection-end-line="578" selection-end-column="6" />
-              <folding />
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#2#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StandardValues.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.6-sources.jar!/play/api/http/StandardValues.scala">
+      <file leaf-file-name="1.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/conf/evolutions/default/1.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="195" column="6" lean-forward="false" selection-start-line="195" selection-start-column="6" selection-end-line="195" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/conf/routes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="89" lean-forward="false" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
+            <state relative-caret-position="285">
+              <caret line="19" column="2" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="19" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -197,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/test/ApplicationSpec.scala" />
         <option value="$PROJECT_DIR$/server/test/IntegrationSpec.scala" />
         <option value="$PROJECT_DIR$/system.properties" />
         <option value="$PROJECT_DIR$/Future.sc" />
@@ -210,10 +204,16 @@
         <option value="$PROJECT_DIR$/server/JSON.sc" />
         <option value="$PROJECT_DIR$/server/conf/application.conf" />
         <option value="$PROJECT_DIR$/server/conf/routes" />
-        <option value="$PROJECT_DIR$/server/test/DatabaseSpec.scala" />
-        <option value="$PROJECT_DIR$/server/test/APISpec.scala" />
         <option value="$PROJECT_DIR$/server/app/dao/ProductsDao.scala" />
+        <option value="$PROJECT_DIR$/server/conf/evolutions/default/1.sql" />
         <option value="$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala" />
+        <option value="$PROJECT_DIR$/server/test/DatabaseSpec.scala" />
+        <option value="$PROJECT_DIR$/server/test/DatabaseCartSpec.scala" />
+        <option value="$PROJECT_DIR$/server/test/ProductDaoSpec.scala" />
+        <option value="$PROJECT_DIR$/server/test/ApplicationSpec.scala" />
+        <option value="$PROJECT_DIR$/server/test/APISpec.scala" />
+        <option value="$PROJECT_DIR$/server/test/CartDaoSpec.scala" />
+        <option value="$PROJECT_DIR$/server/app/dao/ProductDao.scala" />
       </list>
     </option>
   </component>
@@ -224,7 +224,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="y" value="29" />
     <option name="width" value="1680" />
     <option name="height" value="959" />
   </component>
@@ -244,9 +244,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,7 +278,7 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductsDao.scala" type="6117b065:FileNode" />
+              <item name="ProductDao.scala" type="6117b065:FileNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
@@ -286,8 +286,8 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductsDao.scala" type="6117b065:FileNode" />
-              <item name="CartsDao" type="ce8f04f3:TypeDefinitionNode" />
+              <item name="ProductDao.scala" type="6117b065:FileNode" />
+              <item name="CartDao" type="ce8f04f3:TypeDefinitionNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
@@ -295,8 +295,18 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductsDao.scala" type="6117b065:FileNode" />
-              <item name="ProductsDao" type="ce8f04f3:TypeDefinitionNode" />
+              <item name="ProductDao.scala" type="6117b065:FileNode" />
+              <item name="CartDao" type="ce8f04f3:TypeDefinitionNode" />
+              <item name="CartTable" type="ce8f04f3:TypeDefinitionNode" />
+            </path>
+            <path>
+              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="ProductDao.scala" type="6117b065:FileNode" />
+              <item name="ProductDao" type="ce8f04f3:TypeDefinitionNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
@@ -318,14 +328,6 @@
               <item name="shopping" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="WebServices" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shopping" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -333,14 +335,7 @@
               <item name="shopping" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Models.scala" type="6117b065:FileNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shopping" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
@@ -350,162 +345,23 @@
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shopping" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="APISpec" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
+              <item name="sbt: org.scala-lang:scala-library:2.12.4:jar" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-              <item name="Status.class" type="6117b065:FileNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-              <item name="Status.class" type="6117b065:FileNode" />
-              <item name="Status" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-              <item name="Status.class" type="6117b065:FileNode" />
-              <item name="Status$" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="Results.class" type="6117b065:FileNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="Results.class" type="6117b065:FileNode" />
-              <item name="Results" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="Results.class" type="6117b065:FileNode" />
-              <item name="Results" type="ce8f04f3:TypeDefinitionNode" />
-              <item name="Status" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: com.typesafe.play:play_2.12:2.6.6:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="play_2.12-2.6.6.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="Results.class" type="6117b065:FileNode" />
-              <item name="Results$" type="ce8f04f3:TypeDefinitionNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiImplicitParam" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiImplicitParams" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiOperation" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: io.swagger:swagger-annotations:1.5.12:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="swagger-annotations-1.5.12.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-              <item name="Example" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: org.scalatest:scalatest_2.12:3.0.4:jar" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="shopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: org.scalatest:scalatest_2.12:3.0.4:jar" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalatest_2.12-3.0.4.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
+              <item name="scala-library.jar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -526,13 +382,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="add_unversioned_files" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.38965517" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="route&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/routes&#10;JSON&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/JSON.sc&#10;rou&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/routes" />
+    <property name="SearchEverywhereHistoryKey" value="1.&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/evolutions/default/1.sql&#10;1.sql&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/evolutions/default/1.sql&#10;route&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/routes&#10;JSON&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/JSON.sc&#10;rou&#9;FILE&#9;file:///Users/nicolasjorand/Documents/Activities/writing/shopping/server/conf/routes" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server" />
     </key>
@@ -549,7 +408,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.APISpec">
+  <component name="RunManager" selected="ScalaTest.CartDaoSpec">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -619,12 +478,6 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
-    <configuration name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true">
-      <module name="shopping-sources" />
-      <setting name="vmparams4" value="-Djline.terminal=NONE" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="consoleArgs" value="-usejavacp" />
-    </configuration>
     <configuration name="APISpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="server" />
@@ -655,6 +508,21 @@
       <setting name="testKind" value="Class" />
       <setting name="path" value="ApplicationSpec" />
     </configuration>
+    <configuration name="CartDaoSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="server" />
+      <setting name="path" value="CartDaoSpec" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <envs />
+      <setting name="testKind" value="Class" />
+      <setting name="path" value="CartDaoSpec" />
+    </configuration>
     <configuration name="DatabaseSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="server" />
@@ -670,10 +538,10 @@
       <setting name="testKind" value="Class" />
       <setting name="path" value="DatabaseSpec" />
     </configuration>
-    <configuration name="IntegrationSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration name="ProductDaoSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="server" />
-      <setting name="path" value="IntegrationSpec" />
+      <setting name="path" value="ProductDaoSpec" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -683,7 +551,7 @@
       <setting name="useUiWithSbt" value="false" />
       <envs />
       <setting name="testKind" value="Class" />
-      <setting name="path" value="IntegrationSpec" />
+      <setting name="path" value="ProductDaoSpec" />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -699,17 +567,17 @@
       <item index="0" class="java.lang.String" itemvalue="Play 2 App.Shopping" />
       <item index="1" class="java.lang.String" itemvalue="ScalaTest.DatabaseSpec" />
       <item index="2" class="java.lang.String" itemvalue="ScalaTest.APISpec" />
-      <item index="3" class="java.lang.String" itemvalue="ScalaTest.ApplicationSpec" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.IntegrationSpec" />
-      <item index="5" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.CartDaoSpec" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.ApplicationSpec" />
+      <item index="5" class="java.lang.String" itemvalue="ScalaTest.ProductDaoSpec" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.APISpec" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.DatabaseSpec" />
-        <item index="2" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
-        <item index="3" class="java.lang.String" itemvalue="ScalaTest.IntegrationSpec" />
-        <item index="4" class="java.lang.String" itemvalue="ScalaTest.ApplicationSpec" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.CartDaoSpec" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.ProductDaoSpec" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.APISpec" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.ApplicationSpec" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.DatabaseSpec" />
       </list>
     </recent_temporary>
   </component>
@@ -846,35 +714,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="APISpec - 2018.02.25 at 16h 36m 00s.xml">
+    <history-entry file="APISpec - 2018.03.01 at 17h 21m 03s.xml">
       <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 16h 36m 39s.xml">
+    <history-entry file="APISpec - 2018.03.01 at 17h 21m 32s.xml">
       <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 16h 42m 08s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ApplicationSpec - 2018.03.01 at 16h 59m 07s.xml">
+      <configuration name="ApplicationSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 16h 50m 04s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ApplicationSpec - 2018.03.01 at 17h 01m 13s.xml">
+      <configuration name="ApplicationSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 16h 52m 45s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ApplicationSpec - 2018.03.01 at 17h 01m 57s.xml">
+      <configuration name="ApplicationSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 16h 54m 00s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ApplicationSpec - 2018.03.01 at 17h 03m 51s.xml">
+      <configuration name="ApplicationSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 17h 37m 11s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ApplicationSpec - 2018.03.01 at 17h 04m 25s.xml">
+      <configuration name="ApplicationSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 17h 42m 00s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="CartDaoSpec - 2018.03.04 at 17h 46m 32s.xml">
+      <configuration name="CartDaoSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 17h 43m 01s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ProductDaoSpec - 2018.03.04 at 17h 38m 34s.xml">
+      <configuration name="ProductDaoSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="APISpec - 2018.02.25 at 17h 43m 54s.xml">
-      <configuration name="APISpec" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="ProductDaoSpec - 2018.03.04 at 17h 40m 31s.xml">
+      <configuration name="ProductDaoSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -887,41 +755,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="959" extended-state="0" />
+    <frame x="0" y="29" width="1680" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="sbt" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10805861" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3983353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46135554" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46135554" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18620269" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41498217" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22829965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3983353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -959,69 +827,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/build.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/ApplicationSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar!/scala/concurrent/Future.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="163" column="6" lean-forward="false" selection-start-line="163" selection-start-column="6" selection-end-line="163" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/util/concurrent/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="127" column="17" lean-forward="false" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system.properties" />
-    <entry file="file://$PROJECT_DIR$/server/test/IntegrationSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar!/scala/concurrent/duration/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar!/scala/concurrent/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3150">
-          <caret line="217" column="0" lean-forward="false" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Cart.scala" />
     <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Product.scala" />
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.dripower/play-circe_2.12/srcs/play-circe_2.12-2609.0-sources.jar!/play/api/libs/circe/Circe.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/conf/evolutions/default/1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -1110,13 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/Api.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1185,31 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2325">
           <caret line="181" column="6" lean-forward="false" selection-start-line="181" selection-start-column="6" selection-end-line="181" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Application.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/conf/application.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/DatabaseSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,21 +999,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/test/APISpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="103" column="50" lean-forward="false" selection-start-line="103" selection-start-column="50" selection-end-line="103" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="89" lean-forward="false" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1243,15 +1010,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
+        <state relative-caret-position="210">
           <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiImplicitParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1259,58 +1039,161 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/io.swagger/swagger-annotations/srcs/swagger-annotations-1.5.12-sources.jar!/io/swagger/annotations/ApiImplicitParam.java">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.6-sources.jar!/play/api/mvc/Results.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="8415">
+          <caret line="578" column="6" lean-forward="false" selection-start-line="578" selection-start-column="6" selection-end-line="578" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.6-sources.jar!/play/api/http/StandardValues.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="2895">
           <caret line="195" column="6" lean-forward="false" selection-start-line="195" selection-start-column="6" selection-end-line="195" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app/models/Models.scala">
+    <entry file="file://$PROJECT_DIR$/server/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.4-sources.jar!/org/scalatest/AsyncWordSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="2293" column="28" lean-forward="false" selection-start-line="2293" selection-start-column="28" selection-end-line="2293" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatestplus.play/scalatestplus-play_2.12/srcs/scalatestplus-play_2.12-3.1.2-sources.jar!/org/scalatestplus/play/PlaySpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.4-sources.jar!/org/scalatest/concurrent/Eventually.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5535">
+          <caret line="390" column="6" lean-forward="false" selection-start-line="390" selection-start-column="6" selection-end-line="390" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/IntegrationSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app/dao/ProductsDao.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.4-sources.jar!/org/scalatest/concurrent/AbstractPatienceConfiguration.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+        <state relative-caret-position="1140">
+          <caret line="90" column="119" lean-forward="false" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/ApplicationSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar!/scala/Function3.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app/dao/ProductDao.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="61" lean-forward="false" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
           <folding>
             <element signature="e#13#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.6-sources.jar!/play/api/mvc/Results.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.4-sources.jar!/org/scalatest/concurrent/Futures.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="578" column="6" lean-forward="false" selection-start-line="578" selection-start-column="6" selection-end-line="578" selection-end-column="6" />
+        <state relative-caret-position="6660">
+          <caret line="466" column="43" lean-forward="false" selection-start-line="466" selection-start-column="29" selection-end-line="466" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/Application.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="e#21#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/app/io/fscala/shopping/controllers/WebServices.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="66" selection-start-column="2" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="675">
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app/models/Models.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/APISpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="62" lean-forward="false" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
           <folding>
-            <element signature="e#21#60#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/ProductDaoSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#2#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/conf/evolutions/default/1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="2" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="19" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/test/CartDaoSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="37" column="54" lean-forward="false" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1324,7 +1207,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>
@@ -1336,7 +1219,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>
@@ -1348,7 +1231,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>
@@ -1360,7 +1243,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>
@@ -1368,12 +1251,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>server-build</last-edited>
+          <last-edited>shopping</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>
@@ -1393,11 +1275,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>sbt: aopalliance:aopalliance:1.0:jar</last-edited>
+          <last-edited>sbt: org.scala-lang:scala-library:2.12.4:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.38965517" />
               </list>
             </option>
           </splitter-proportions>

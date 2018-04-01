@@ -1,4 +1,4 @@
-package models
+package io.fscala.shopping.shared
 
 case class Product(name: String, code : String, description : String, price: Double)
 

@@ -6,8 +6,8 @@ import dao.{CartDao, ProductDao}
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
+import io.fscala.shopping.shared.{Cart, Product, ProductInCart}
 import io.swagger.annotations._
-import models.{Cart, Product, ProductInCart}
 import play.api.Logger
 import play.api.libs.circe.Circe
 import play.api.mvc.{AbstractController, ControllerComponents, Result}
@@ -127,7 +127,7 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
     new ApiImplicitParam(
       value = "The product to add",
       required = true,
-      dataType = "models.Product", // complete path
+      dataType = "io.fscala.shopping.shared.Product", // complete path
       paramType = "body"
     )
   ))

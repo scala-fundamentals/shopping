@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Application @Inject()(cc: ControllerComponents, productDao: ProductDao) extends AbstractController(cc) with Circe {
 
   def index = Action {
-    Ok(views.html.index(SharedMessages.itWorks))
+    Ok(views.html.index("Shopping Page"))
   }
 
 }

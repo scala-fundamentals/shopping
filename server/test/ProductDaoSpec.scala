@@ -1,7 +1,7 @@
 
 
 import dao.ProductDao
-import models.Product
+import io.fscala.shopping.shared.Product
 import org.scalatest.Matchers._
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatestplus.play._

@@ -1,7 +1,7 @@
 import io.circe.generic.auto._
 import io.circe.syntax._
-import models.Product
 import io.circe.parser._
+import io.fscala.shopping.shared.Product
 
 val newProduct = Product("NewOne","New","The brand new product", 100.0)
 

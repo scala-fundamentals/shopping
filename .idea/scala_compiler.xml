@@ -8,7 +8,7 @@
         <parameter value="-P:scalajs:mapSourceURI:file:/Users/nicolasjorand/Documents/Activities/writing/shopping/client/src/main/scala/-&gt;ab0a8717f83d0073d82f/" />
       </parameters>
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.22.jar" />
       </plugins>
     </profile>
     <profile name="sbt 3" modules="server">
@@ -21,7 +21,7 @@
     </profile>
     <profile name="sbt 4" modules="sharedJS">
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.22.jar" />
       </plugins>
     </profile>
   </component>

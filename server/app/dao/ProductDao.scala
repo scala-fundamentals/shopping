@@ -2,7 +2,8 @@ package dao
 
 import javax.inject.Inject
 
-import models.{Cart, Product, ProductInCart}
+import io.fscala.shopping.shared
+import io.fscala.shopping.shared.{Cart, Product, ProductInCart}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
@@ -13,11 +14,11 @@ class ProductDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvide
 
   import profile.api._
 
-  def all(): Future[Seq[Product]] = db.run(products.result)
+  def all(): Future[Seq[shared.Product]] = db.run(products.result)
 
-  def insert(product: Product): Future[Unit] = db.run(products insertOrUpdate product).map { _ => () }
+  def insert(product: shared.Product): Future[Unit] = db.run(products insertOrUpdate product).map { _ => () }
 
-  private class ProductTable(tag: Tag) extends Table[Product](tag, "PRODUCT") {
+  private class ProductTable(tag: Tag) extends Table[shared.Product](tag, "PRODUCT") {
     def name = column[String]("NAME")
 
     def code = column[String]("CODE")

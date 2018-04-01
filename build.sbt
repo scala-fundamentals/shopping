@@ -1,3 +1,5 @@
+import scalajsbundler.sbtplugin.ScalaJSBundlerPlugin.autoImport.npmDependencies
+
 lazy val server = (project in file("server")).settings(commonSettings).settings(
   scalaJSProjects := Seq(client),
   pipelineStages in Assets := Seq(scalaJSPipeline),
@@ -17,15 +19,20 @@ lazy val server = (project in file("server")).settings(commonSettings).settings(
   ),
   // Compile the project before generating Eclipse files, so that generated .scala or .class files for views and routes are present
   EclipseKeys.preTasks := Seq(compile in Compile)
-).enablePlugins(PlayScala).
+).enablePlugins(PlayScala).//,SbtWeb , WebScalaJSBundlerPlugin).
   dependsOn(sharedJvm)
 
 lazy val client = (project in file("client")).settings(commonSettings).settings(
   scalaJSUseMainModuleInitializer := true,
   libraryDependencies ++= Seq(
-    "org.scala-js" %%% "scalajs-dom" % "0.9.3"
-  )
-).enablePlugins(ScalaJSPlugin, ScalaJSWeb).
+    "org.scala-js" %%% "scalajs-dom" % "0.9.3",
+    "com.lihaoyi" %%% "scalatags" % "0.6.7",
+    "org.querki" %%% "jquery-facade" % "1.2"
+  ),
+//  npmDependencies in Compile += "jquery" -> "3.2.1",
+//  npmDependencies in Compile += "bootstrap" -> "4.0.0"
+
+).enablePlugins(ScalaJSPlugin, ScalaJSWeb).//, ScalaJSBundlerPlugin).
   dependsOn(sharedJs)
 
 lazy val shared = (crossProject.crossType(CrossType.Pure) in file("shared")).settings(commonSettings)
@@ -38,4 +45,4 @@ lazy val commonSettings = Seq(
 )
 
 // loads the server project at sbt startup
-onLoad in Global := (onLoad in Global).value andThen {s: State => "project server" :: s}
+onLoad in Global := (onLoad in Global).value andThen { s: State => "project server" :: s }

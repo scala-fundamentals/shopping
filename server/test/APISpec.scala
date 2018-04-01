@@ -1,6 +1,6 @@
 import io.circe.generic.auto._
 import io.circe.parser._
-import models.Cart
+import io.fscala.shopping.shared.Cart
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.time.{Millis, Seconds, Span}
 import org.scalatestplus.play.PlaySpec

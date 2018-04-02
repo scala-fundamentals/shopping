@@ -2,6 +2,7 @@ import dao.CartDao
 import io.fscala.shopping.shared.{Cart, ProductInCart}
 import org.scalatest.Matchers._
 import org.scalatest.concurrent.ScalaFutures
+import org.scalatest.RecoverMethods._
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.Application
@@ -38,6 +39,24 @@ class CartDaoSpec extends PlaySpec with ScalaFutures with GuiceOneAppPerSuite {
       whenReady(Future.sequence(insertFutures)) { _ =>
         dao.cart4(user).futureValue should contain theSameElementsAs (expected)
         dao.all().futureValue.size should equal(expected ++ noise size)
+      }
+    }
+    "error thrown when adding a cart with same user and productCode" in {
+      val dao: CartDao = app2dao(app)
+      val user = "userAdd"
+
+      val expected = Set(
+        Cart(user, "ALD1", 1),
+        Cart(user, "BEO1", 5)
+      )
+      val noise = Set(
+        Cart(user, "ALD1", 10)
+      )
+
+      val insertFutures = expected.map(dao.insert(_)) ++ noise.map(dao.insert(_))
+
+      recoverToSucceededIf[org.h2.jdbc.JdbcSQLException]{
+        Future.sequence(insertFutures)
       }
     }
 

@@ -22,6 +22,10 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
 
 
   val recoverError: PartialFunction[Throwable, Result] = {
+    case e: org.h2.jdbc.JdbcSQLException => {
+      Logger.error("Inserting duplicate in the database", e)
+      BadRequest("Cannot insert duplicates in the database")
+    }
     case e: Throwable => {
       Logger.error("Error while writing in the database", e)
       InternalServerError("Cannot write in the database")
@@ -82,9 +86,10 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
 
   @ApiOperation(value = "Add a product in the cart", consumes = "text/plain")
   @ApiResponses(Array(new ApiResponse(code = 200, message = "Product added in the cart"),
+    new ApiResponse(code = 400, message = "Cannot insert duplicates in the database"),
     new ApiResponse(code = 401, message = "unauthorized, please login before to proceed"),
     new ApiResponse(code = 500, message = "Internal server error, database error")))
-  def addCartProduct(@ApiParam(name = "id", value = "The product code", required = true) id: String, @ApiParam(name = "quantity", value= "The quantity to add", required = true) quantity: String) = Action.async { request =>
+  def addCartProduct(@ApiParam(name = "id", value = "The product code", required = true) id: String, @ApiParam(name = "quantity", value = "The quantity to add", required = true) quantity: String) = Action.async { request =>
     val userOption = request.session.get("user")
     userOption match {
       case Some(user) => {
@@ -97,10 +102,10 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
   }
 
   @ApiOperation(value = "Update a product quantity in the cart", consumes = "text/plain")
-  @ApiResponses(Array(new ApiResponse(code = 200, message = "Product added in the cart"),
+  @ApiResponses(Array(new ApiResponse(code = 200, message = "Product updated in the cart"),
     new ApiResponse(code = 401, message = "unauthorized, please login before to proceed"),
     new ApiResponse(code = 500, message = "Internal server error, database error")))
-  def updateCartProduct(@ApiParam(name = "id", value = "The product code", required = true, example = "ALD1") id: String, @ApiParam(name = "quantity", value= "The quantity to update", required = true) quantity: String) = Action.async { request =>
+  def updateCartProduct(@ApiParam(name = "id", value = "The product code", required = true, example = "ALD1") id: String, @ApiParam(name = "quantity", value = "The quantity to update", required = true) quantity: String) = Action.async { request =>
     val userOption = request.session.get("user")
     userOption match {
       case Some(user) => {
@@ -132,8 +137,8 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
     )
   ))
   @ApiResponses(Array(new ApiResponse(code = 200, message = "Product added"),
-                      new ApiResponse(code = 400, message = "Invalid body supplied"),
-                      new ApiResponse(code = 500, message = "Internal server error, database error")))
+    new ApiResponse(code = 400, message = "Invalid body supplied"),
+    new ApiResponse(code = 500, message = "Internal server error, database error")))
   def addProduct() = Action.async { request =>
     val productOrNot = decode[Product](request.body.asText.getOrElse(""))
     productOrNot match {

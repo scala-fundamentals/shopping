@@ -95,10 +95,10 @@ case class UIManager(cart: CartDiv = CartDiv(Set.empty[CartLine])) {
 
   private def postInCart(productCode: String, updatedQuantity: Int, onDone: () => Unit = () => ()) = {
     $.post(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode/quantity/${updatedQuantity}")._result)
-      .done(onDone)
+      .done(onDone).fail(() => println("cannot add a product twice"))
   }
   private def putInCart(productCode: String, updatedQuantity: Int) = {
-    $.post(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode/quantity/${updatedQuantity}")._result)
+    $.ajax(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode/quantity/${updatedQuantity}").method("PUT")._result)
       .done()
   }
 

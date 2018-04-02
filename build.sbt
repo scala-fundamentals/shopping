@@ -27,8 +27,14 @@ lazy val client = (project in file("client")).settings(commonSettings).settings(
   libraryDependencies ++= Seq(
     "org.scala-js" %%% "scalajs-dom" % "0.9.3",
     "com.lihaoyi" %%% "scalatags" % "0.6.7",
-    "org.querki" %%% "jquery-facade" % "1.2"
+    "org.querki" %%% "jquery-facade" % "1.2",
+    "io.circe" %%% "circe-core" % "0.9.3",
+    "io.circe" %%% "circe-generic" % "0.9.3",
+    "io.circe" %%% "circe-parser" % "0.9.3"
   ),
+  jsDependencies +=
+    "org.webjars" % "jquery" % "2.2.1" / "jquery.js"
+      minified "jquery.min.js"
 //  npmDependencies in Compile += "jquery" -> "3.2.1",
 //  npmDependencies in Compile += "bootstrap" -> "4.0.0"
 

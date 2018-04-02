@@ -22,7 +22,7 @@ case class CartLine(qty: Int, productName: String, productCode: String, price: D
     div(`class` := "col")(priceLabel)
   ).render
 
-  private def quantityInput = input(onchange := changeQty, value := qty.toString, `type` := "text", style := "width: 100%;").render
+  private def quantityInput = input(id := s"cart-$productCode-qty", onchange := changeQty, value := qty.toString, `type` := "text", style := "width: 100%;").render
 
   private def productLabel = label(productName).render
 
@@ -31,7 +31,7 @@ case class CartLine(qty: Int, productName: String, productCode: String, price: D
 
   private def deleteButton = button(`type` := "button", onclick := removeFromCart)("X").render
 
-  private def changeQty = () => ???
+  private def changeQty = () => UIManager.manager.updateProduct(productCode)
 
-  private def removeFromCart = () => ???
+  private def removeFromCart = () => UIManager.manager.deleteProduct(productCode)
 }

@@ -88,7 +88,7 @@ class WebServices @Inject()(cc: ControllerComponents, productDao: ProductDao, ca
     val userOption = request.session.get("user")
     userOption match {
       case Some(user) => {
-        Logger.info(s"User '$user' is adding the product'$id' in it's cart")
+        Logger.info(s"User '$user' is adding $quantity times the product'$id' in it's cart")
         val futureInsert = cartsDao.insert(Cart(user, id, quantity.toInt))
         futureInsert.map(_ => Ok).recover(recoverError)
       }

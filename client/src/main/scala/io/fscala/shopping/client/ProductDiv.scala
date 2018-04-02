@@ -5,7 +5,7 @@ import io.fscala.shopping.shared.Product
 import scalatags.JsDom.all._
 
 
-case class ProductDiv(product: Product, manager : UIManager) {
+case class ProductDiv(product: Product) {
   def content = div(`class` := "col")(productDescription, addButton).render
 
   private def productDescription =
@@ -17,5 +17,5 @@ case class ProductDiv(product: Product, manager : UIManager) {
 
   private def addButton = button(`type` := "button", onclick := addToCart)("Add to Cart")
 
-  private def addToCart = () => manager.addProduct(product)
+  private def addToCart = () => UIManager.manager.addOneProduct(product)
 }

@@ -1,21 +1,21 @@
 package io.fscala.shopping.client
 
 import io.fscala.shopping.shared.Product
-
+import org.scalajs.dom.html.Div
 import scalatags.JsDom.all._
 
 
 case class ProductDiv(product: Product) {
-  def content = div(`class` := "col")(productDescription, addButton).render
+  def content: Div = div(`class` := "col")(getProductDescription, getButton).render
 
-  private def productDescription =
+  private def getProductDescription =
       div(
         p(product.name),
         p(product.description),
         p(product.price))
 
 
-  private def addButton = button(`type` := "button", onclick := addToCart)("Add to Cart")
+  private def getButton = button(`type` := "button", onclick := addToCart)("Add to Cart")
 
-  private def addToCart = () => UIManager.manager.addOneProduct(product)
+  private def addToCart() = () => UIManager.addOneProduct(product)
 }

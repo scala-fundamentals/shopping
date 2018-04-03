@@ -11,17 +11,12 @@ import scala.util.Try
 
 object UIManager {
 
-  val manager = new UIManager()
-
-  val origin = dom.document.location.origin
+  val origin: UndefOr[String] = dom.document.location.origin
+  val cart: CartDiv = CartDiv(Set.empty[CartLine])
 
   def main(args: Array[String]): Unit = {
-    println("Executing Main ...")
-
-    val settings = JQueryAjaxSettings.url(s"$origin/v1/login").data("nicolas11").contentType("text/plain")
-
-    $.post(settings._result).done((answers: String) => {
-      println(s"logged in ...")
+    val settings = JQueryAjaxSettings.url(s"$origin/v1/login").data("theUser").contentType("text/plain")
+    $.post(settings._result).done((_: String) => {
       initUI(origin)
     })
   }
@@ -31,7 +26,9 @@ object UIManager {
       .done((answers: String) => {
         val products = decode[Seq[Product]](answers)
         products.right.map { seq =>
-          seq.foreach(p => dom.document.getElementById("products").appendChild(ProductDiv(p).content))
+          seq.foreach(p =>
+            $("#products").append(ProductDiv(p).content)
+          )
           initCartUI(origin, seq)
         }
       })
@@ -44,15 +41,16 @@ object UIManager {
     $.get(url = s"$origin/v1/cart/products", dataType = "text")
       .done((answers: String) => {
         val carts = decode[Seq[Cart]](answers)
-        carts.right.map { carts =>
-          carts.foreach { cartDao =>
-            val product = products.filter(_.code == cartDao.productCode).headOption
+        carts.right.map { cartLines =>
+          cartLines.foreach { cartDao =>
+            val product = products.find(_.code == cartDao.productCode)
             product match {
-              case Some(p) => {
-                val cartContent = UIManager.manager.cart.addProduct(CartLine(cartDao.quantity, p.name, cartDao.productCode, p.price)).content
-                dom.document.getElementById("cartPanel").appendChild(cartContent)
-              }
-              case None => println(s"product code ${cartDao.productCode} doesn't exists in the catalog")
+              case Some(p) =>
+                val cartLine = CartLine(cartDao.quantity, p.name, cartDao.productCode, p.price)
+                val cartContent = UIManager.cart.addProduct(cartLine).content
+                $("#cartPanel").append(cartContent)
+              case None =>
+                println(s"product code ${cartDao.productCode} doesn't exists in the catalog")
             }
           }
         }
@@ -61,49 +59,54 @@ object UIManager {
         println(s"call failed: $textStatus with status code: ${xhr.status} $textError")
       )
   }
-}
 
-case class UIManager(cart: CartDiv = CartDiv(Set.empty[CartLine])) {
-
-  def addOneProduct(product: Product) = {
-    val updatedQuantity = quantity(product.code) + 1
+  def addOneProduct(product: Product): JQueryDeferred = {
+    val quantity = 1
 
     def onDone = () => {
-      val cartContent = cart.addProduct(CartLine(1, product.name, product.code, product.price)).content
-      val node = dom.document.getElementById("cartPanel").appendChild(cartContent)
+      val cartContent = cart.addProduct(CartLine(quantity, product.name, product.code, product.price)).content
+      $("#cartPanel").append(cartContent)
+      println(s"Product $product added in the cart")
     }
 
-    postInCart(product.code, updatedQuantity, onDone)
+    postInCart(product.code, quantity, onDone)
   }
 
-  def updateProduct(productCode: String) = {
+  def updateProduct(productCode: String): JQueryDeferred = {
     putInCart(productCode, quantity(productCode))
   }
 
-  def deleteProduct(productCode:String) = {
+  def deleteProduct(productCode: String): JQueryDeferred = {
     def onDone = () => {
-      val cartContent = $(s"#$productCode-row")
-      val result = cartContent.remove()
+      val cartContent = $(s"#cart-$productCode-row")
+      cartContent.remove()
+      println(s"Product $productCode removed from the cart")
     }
+
     deletefromCart(productCode, onDone)
   }
 
   private def quantity(productCode: String) = Try {
     val inputText = $(s"#cart-$productCode-qty")
-    if (inputText.length != 0) Integer.parseInt(inputText.`val`().asInstanceOf[String]) else 0
-  }.getOrElse(0)
+    if (inputText.length != 0) Integer.parseInt(inputText.`val`().asInstanceOf[String]) else 1
+  }.getOrElse(1)
 
-  private def postInCart(productCode: String, updatedQuantity: Int, onDone: () => Unit = () => ()) = {
-    $.post(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode/quantity/${updatedQuantity}")._result)
-      .done(onDone).fail(() => println("cannot add a product twice"))
+  private def postInCart(productCode: String, quantity: Int, onDone: () => Unit) = {
+    val url = s"${UIManager.origin}/v1/cart/products/$productCode/quantity/$quantity"
+    $.post(JQueryAjaxSettings.url(url)._result)
+      .done(onDone)
+      .fail(() => println("cannot add a product twice"))
   }
+
   private def putInCart(productCode: String, updatedQuantity: Int) = {
-    $.ajax(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode/quantity/${updatedQuantity}").method("PUT")._result)
+    val url = s"${UIManager.origin}/v1/cart/products/$productCode/quantity/$updatedQuantity"
+    $.ajax(JQueryAjaxSettings.url(url).method("PUT")._result)
       .done()
   }
 
   private def deletefromCart(productCode: String, onDone: () => Unit) = {
-    $.ajax(JQueryAjaxSettings.url(s"${UIManager.origin}/v1/cart/products/$productCode").method("DELETE")._result)
+    val url = s"${UIManager.origin}/v1/cart/products/$productCode"
+    $.ajax(JQueryAjaxSettings.url(url).method("DELETE")._result)
       .done(onDone)
   }
 }

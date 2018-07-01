@@ -1,7 +1,7 @@
 package io.fscala.shopping.client
 
-import io.circe.generic.auto._
-import io.circe.parser._
+
+import io.circe.generic.auto._, io.circe.parser._
 import io.fscala.shopping.shared.{Cart, Product}
 import org.querki.jquery._
 import org.scalajs.dom

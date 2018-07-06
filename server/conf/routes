@@ -23,3 +23,7 @@ GET           /assets/*file                                   controllers.Assets
 GET           /v1/swagger.json                                controllers.ApiHelpController.getResources
 
 GET           /docs/swagger-ui/*file                          controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
+
+# Websocket
+
+GET           /v1/cart/events                                     controllers.Application.cartEventWS

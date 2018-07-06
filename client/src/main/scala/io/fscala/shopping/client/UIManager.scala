@@ -1,21 +1,17 @@
 package io.fscala.shopping.client
 
 
-import java.net.URLEncoder
-
 import io.circe.generic.auto._
 import io.circe.parser._
-import io.fscala.shopping.shared.{Cart, CartEvent, Product}
+import io.circe.syntax._
+import io.fscala.shopping.shared._
 import org.querki.jquery._
 import org.scalajs.dom
 import org.scalajs.dom.html.Document
 import org.scalajs.dom.raw.{CloseEvent, Event, MessageEvent, WebSocket}
 
-import scala.scalajs.js
 import scala.scalajs.js.UndefOr
-import scala.scalajs.js.annotation.{JSGlobal, ScalaJSDefined}
-import scala.util.Try
-import scala.scalajs.js.UndefOr.any2undefOrA
+import scala.util.{Random, Try}
 
 
 object UIManager {
@@ -23,11 +19,13 @@ object UIManager {
   val origin: UndefOr[String] = dom.document.location.origin
   val cart: CartDiv = CartDiv(Set.empty[CartLine])
 
-  val webSocket = new WebSocket(getWebsocketUri(dom.document, "cart/events"))
+  val webSocket: WebSocket = getWebSocket
+
+  val dummyUserName = s"user-${Random.nextInt(1000)}"
 
 
   def main(args: Array[String]): Unit = {
-    val settings = JQueryAjaxSettings.url(s"$origin/v1/login").data("theUser").contentType("text/plain")
+    val settings = JQueryAjaxSettings.url(s"$origin/v1/login").data(dummyUserName).contentType("text/plain")
     $.post(settings._result).done((_: String) => {
       initUI(origin)
     })
@@ -48,51 +46,7 @@ object UIManager {
       .fail((xhr: JQueryXHR, textStatus: String, textError: String) =>
         println(s"call failed: $textStatus with status code: ${xhr.status} $textError")
       )
-
-
   }
-
-  @js.native
-  @JSGlobal("$")
-  object NotifyJS extends js.Object {
-    def notify(msg: String, option: Options): Nothing = js.native
-
-    def notify(msg: String, className: String): Nothing = js.native
-  }
-
-  @ScalaJSDefined
-  trait Options extends js.Object {
-    // whether to hide the notification on click
-    val clickToHide: js.UndefOr[Boolean]= js.undefined
-    // whether to auto-hide the notification
-    val autoHide: js.UndefOr[Boolean]= js.undefined
-    // if autoHide, hide after milliseconds
-    val autoHideDelay: js.UndefOr[Int] = js.undefined
-    // show the arrow pointing at the element
-    val arrowShow: js.UndefOr[Boolean]= js.undefined
-    // arrow size in pixels
-    val arrowSize: js.UndefOr[Int] = js.undefined
-    // position defines the notification position though uses the defaults below
-    val position: js.UndefOr[String] = js.undefined
-    // default positions
-    val elementPosition: js.UndefOr[String] = js.undefined
-    val globalPosition: js.UndefOr[String] = js.undefined
-    // default style
-    val style: js.UndefOr[String] = js.undefined
-    // default class (string or [string])
-    val className: js.UndefOr[String] = js.undefined
-    // show animation
-    val showAnimation: js.UndefOr[String] = js.undefined
-    // show animation duration
-    val showDuration: js.UndefOr[Int] = js.undefined
-    // hide animation
-    val hideAnimation: js.UndefOr[String] = js.undefined
-    // hide animation duration
-    val hideDuration: js.UndefOr[Int] = js.undefined
-    // padding between element and notification
-    val gap: js.UndefOr[Int] = js.undefined
-  }
-
 
   private def initCartUI(origin: UndefOr[String], products: Seq[Product]) = {
     $.get(url = s"$origin/v1/cart/products", dataType = "text")
@@ -103,7 +57,7 @@ object UIManager {
             val product = products.find(_.code == cartDao.productCode)
             product match {
               case Some(p) =>
-                val cartLine = CartLine(cartDao.quantity, p.name, cartDao.productCode, p.price)
+                val cartLine = CartLine(cartDao.quantity, p)
                 val cartContent = UIManager.cart.addProduct(cartLine).content
                 $("#cartPanel").append(cartContent)
               case None =>
@@ -121,58 +75,65 @@ object UIManager {
     val quantity = 1
 
     def onDone = () => {
-      val cartContent = cart.addProduct(CartLine(quantity, product.name, product.code, product.price)).content
+      val cartContent = cart.addProduct(CartLine(quantity, product)).content
       $("#cartPanel").append(cartContent)
-
-      NotifyJS.notify(s"product '${product.code}' added", new Options { override val className = "info"} )
       println(s"Product $product added in the cart")
+      webSocket.send(CartEvent(dummyUserName, product, Add).asJson.noSpaces)
     }
 
     postInCart(product.code, quantity, onDone)
   }
 
-  def updateProduct(productCode: String): JQueryDeferred = {
-    putInCart(productCode, quantity(productCode))
+  def updateProduct(product: Product): JQueryDeferred = {
+    putInCart(product.code, quantity(product.code))
   }
 
-  def deleteProduct(productCode: String): JQueryDeferred = {
+  def deleteProduct(product: Product): JQueryDeferred = {
     def onDone = () => {
-      val cartContent = $(s"#cart-$productCode-row")
+      val cartContent = $(s"#cart-${product.code}-row")
       cartContent.remove()
-      NotifyJS.notify(s"product '$productCode' removed", "warn")
-      println(s"Product $productCode removed from the cart")
+      webSocket.send(CartEvent(dummyUserName, product, Remove).asJson.noSpaces)
+      println(s"Product ${product.code} removed from the cart")
     }
 
-    deletefromCart(productCode, onDone)
+    deletefromCart(product.code, onDone)
   }
 
   private def getWebSocket: WebSocket = {
-    webSocket.onopen = { (event: Event) ⇒
+    val ws = new WebSocket(getWebsocketUri(dom.document, "v1/cart/events"))
+    ws.onopen = { (event: Event) ⇒
       println(s"webSocket.onOpen '${event.`type`}'")
       event.preventDefault()
     }
 
-    webSocket.onerror = { (event: Event) =>
+    ws.onerror = { (event: Event) =>
       System.err.println(s"webSocket.onError '${event.getClass}'")
     }
 
-    webSocket.onmessage = { (event: MessageEvent) =>
-      println(s"[webSocket.onMessage] '${URLEncoder.encode(event.data.toString, "UTF-8")}'...")
-      val msg = decode[CartEvent](event.data.toString)
+    ws.onmessage = { (event: MessageEvent) =>
+      println(s"[webSocket.onMessage] '${event.data.toString}'...")
+      val msg = decode[Alarm](event.data.toString)
       msg match {
-        case Right(cartEvent) =>
-          println(s"[webSocket.onMessage]  Got cart event : $cartEvent)")
-        //TODO SPWAN a bootstrap notification
-
+        case Right(alarm) =>
+          println(s"[webSocket.onMessage]  Got alarm event : $alarm)")
+          notify(alarm)
         case Left(e) =>
           println(s"[webSocket.onMessage] Got a unknown event : $msg)")
       }
     }
 
-    webSocket.onclose = { (event: CloseEvent) ⇒
+    ws.onclose = { (event: CloseEvent) ⇒
       println(s"webSocket.onClose '${event.`type`}'")
     }
-    webSocket
+    ws
+  }
+
+  private def notify(alarm: Alarm): Unit = {
+    val notifyClass = if (alarm.action == Add) "info" else "warn"
+    NotifyJS.notify(alarm.message, new Options {
+      className = notifyClass
+      globalPosition = "right bottom"
+    })
   }
 
   private def quantity(productCode: String) = Try {
